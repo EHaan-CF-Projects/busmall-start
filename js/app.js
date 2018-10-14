@@ -1,15 +1,16 @@
 'use strict';
 
 //==========Global Variables======================
-var imageSection = document.getElementById('testing-section');
+// var imageSection = document.getElementById('testing-section');
+var rankSection = document.getElementById('rank-results');
 
 var productImage1 = document.getElementById('image-1');
 var productImage2 = document.getElementById('image-2');
 var productImage3 = document.getElementById('image-3');
 
 var productImage1Text = document.getElementById('image-1-text');
-var productImage1Text = document.getElementById('image-2-text');
-var productImage1Text = document.getElementById('image-3-text');
+var productImage2Text = document.getElementById('image-2-text');
+var productImage3Text = document.getElementById('image-3-text');
 
 var currentImage1ArrayIndex = 0;
 var currentImage2ArrayIndex = 2;
@@ -71,15 +72,25 @@ var busMallClickHandler = function (event) {
   productImage2.src = allProductImagesArray[randomNumberImage2].src;
   productImage3.src = allProductImagesArray[randomNumberImage3].src;
 
+  productImage1Text.textContent = allProductImagesArray[randomNumberImage1].name;
+  productImage2Text.textContent = allProductImagesArray[randomNumberImage2].name;
+  productImage3Text.textContent = allProductImagesArray[randomNumberImage3].name;
 
   clickCounter++;
   if (clickCounter === 25) {
-    imageSection.removeEventListener('click', busMallClickHandler);
-  }
+    productImage1.removeEventListener('click', busMallClickHandler);
+    productImage2.removeEventListener('click', busMallClickHandler);
+    productImage3.removeEventListener('click', busMallClickHandler);
 
+    var liUl = document.createElement('li');
+    liUl.textContent = `The ${allProductImagesArray[i].name} got ${allProductImagesArray[i].likes} votes.`;
+    rankSection.appendChild(liUl);
+  }
 };
 
-imageSection.addEventListener('click', busMallClickHandler);
+productImage1.addEventListener('click', busMallClickHandler);
+productImage2.addEventListener('click', busMallClickHandler);
+productImage3.addEventListener('click', busMallClickHandler);
 
 //Charts
 
