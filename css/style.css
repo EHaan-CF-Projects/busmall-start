@@ -1,0 +1,95 @@
+body {
+    width: 960px;
+    margin: auto;
+    background-color: rgb(68, 65, 65);
+    color: white;
+}
+
+header {
+    margin: 10px 0;
+    text-align: center;
+    border-bottom: 10px white solid;
+    padding: 5px;
+    margin-bottom: 25px;
+}
+
+h1 {
+    font-size: 80px;
+    font-family: 'Bai Jamjuree', sans-serif;
+}
+
+h2 {
+    font-size: 47px;
+    font-family: 'Bai Jamjuree', sans-serif;
+}
+
+h3 {
+    font-size: 30px;
+    margin-bottom: 15px;
+    font-family: 'Bai Jamjuree', sans-serif;
+}
+
+aside {
+    float: left;
+    width: 23%;
+    height: 625px;
+    border: 2px white solid;
+    padding: 10px;
+}
+
+aside div {
+    text-align: center;
+    font-family: 'Bai Jamjuree', sans-serif;
+    border-bottom: 2px white solid;
+    padding: 5px;
+}
+
+aside li {
+    margin: 10px 0;
+    text-align: right;
+    font-family: 'Bai Jamjuree', sans-serif;
+}
+
+#purpose {
+    width: 70%;
+    float: left;
+    margin-top: 20px;
+    margin-left: 10px;
+}
+
+p {
+    margin-bottom: 15px;
+    font-family: 'EB Garamond', serif;
+}
+
+#testing-section {
+    width: 73%;
+    float: left;
+    margin-top: 50px;
+    margin-left: 10px;
+}
+
+#testing-section h3 {
+    text-align: center;
+    border-bottom: 2px white solid;
+    font-family: 'Bai Jamjuree', sans-serif;
+}
+
+#test-products div {
+    display: inline-block;
+    margin: 0px 15px;
+   
+}
+
+#test-products h5 {
+    text-align: center;
+    font-size: 18px;
+    font-family: 'Bai Jamjuree', sans-serif;
+}
+
+footer {
+    width: 960px;
+    float: left;
+    border-top: 10px white solid;
+    margin: 25px 0;
+}
