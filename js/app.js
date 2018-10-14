@@ -82,9 +82,11 @@ var busMallClickHandler = function (event) {
     productImage2.removeEventListener('click', busMallClickHandler);
     productImage3.removeEventListener('click', busMallClickHandler);
 
-    var liUl = document.createElement('li');
-    liUl.textContent = `The ${allProductImagesArray[i].name} got ${allProductImagesArray[i].likes} votes.`;
-    rankSection.appendChild(liUl);
+    for (var i = 0; i < allProductImagesArray.length; i++) {
+      var liUl = document.createElement('li');
+      liUl.textContent = `The ${allProductImagesArray[i].name} was displayed ${allProductImagesArray[i].appeared} times and got ${allProductImagesArray[i].likes} vote(s).`;
+      rankSection.appendChild(liUl);
+    }
   }
 };
 
@@ -125,3 +127,9 @@ new ProductImage('unicorn', './img/unicorn.jpg');
 new ProductImage('usb', './img/usb.gif');
 new ProductImage('water-can', './img/water-can.jpg');
 new ProductImage('wine-glass', './img/wine-glass.jpg');
+
+// allProductImagesArray.forEach(function(item) {
+//   var liUl = document.createElement('li');
+//   liUl.textContent = `The ${item.name} was displayed ${item.appeared} times and got ${item.likes} vote(s).`;
+//   rankSection.appendChild(liUl);
+// });
