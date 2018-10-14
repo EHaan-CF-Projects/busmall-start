@@ -64,6 +64,7 @@ p {
 
 #testing-section {
     width: 73%;
+    height: 405px;
     float: left;
     margin-top: 50px;
     margin-left: 10px;
@@ -87,9 +88,14 @@ p {
     font-family: 'Bai Jamjuree', sans-serif;
 }
 
+#vote-graph {
+    margin: 25px 0;
+}
+
 footer {
     width: 960px;
     float: left;
     border-top: 10px white solid;
     margin: 25px 0;
 }
+

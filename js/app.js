@@ -3,6 +3,8 @@
 //==========Global Variables======================
 // var imageSection = document.getElementById('testing-section');
 var rankSection = document.getElementById('rank-results');
+var ctx = document.getElementById("myChart").getContext('2d');
+console.log(ctx);
 
 var productImage1 = document.getElementById('image-1');
 var productImage2 = document.getElementById('image-2');
@@ -37,6 +39,8 @@ ProductImage.prototype.renderProductImage = function() {
   productImage3.src = this.src;
 };
 
+//========Test-Running Event======================
+//Generate 3 random images
 var busMallClickHandler = function (event) {
   if(event.target.id === 'image-1' || event.target.id === 'image-2' || event.target.id ==='image-3') {
     do {
@@ -52,6 +56,7 @@ var busMallClickHandler = function (event) {
     } while (randomNumberImage3 === currentImage3ArrayIndex || randomNumberImage3 === currentImage1ArrayIndex || randomNumberImage3 === currentImage2ArrayIndex || randomNumberImage3 === randomNumberImage1 || randomNumberImage3 === randomNumberImage2);
   }
 
+  //track votes
   if (event.target.id === 'image-1') {
     allProductImagesArray[currentImage1ArrayIndex].likes++;
   } else if (event.target.id === 'image-2') {
@@ -60,10 +65,12 @@ var busMallClickHandler = function (event) {
     allProductImagesArray[currentImage3ArrayIndex].likes++;
   }
 
+  //track appearances
   allProductImagesArray[currentImage1ArrayIndex].appeared++;
   allProductImagesArray[currentImage2ArrayIndex].appeared++;
   allProductImagesArray[currentImage3ArrayIndex].appeared++;
 
+  //set initial images
   currentImage1ArrayIndex = randomNumberImage1;
   currentImage2ArrayIndex = randomNumberImage2;
   currentImage3ArrayIndex = randomNumberImage3;
@@ -76,37 +83,30 @@ var busMallClickHandler = function (event) {
   productImage2Text.textContent = allProductImagesArray[randomNumberImage2].name;
   productImage3Text.textContent = allProductImagesArray[randomNumberImage3].name;
 
+  //turn off after 25 test rounds
   clickCounter++;
   if (clickCounter === 25) {
     productImage1.removeEventListener('click', busMallClickHandler);
     productImage2.removeEventListener('click', busMallClickHandler);
     productImage3.removeEventListener('click', busMallClickHandler);
 
+    //render voting results
     for (var i = 0; i < allProductImagesArray.length; i++) {
       var liUl = document.createElement('li');
       liUl.textContent = `${allProductImagesArray[i].name}:  ${allProductImagesArray[i].likes} / ${allProductImagesArray[i].appeared}`;
       rankSection.appendChild(liUl);
     }
+    //render results as bar graph
+    renderChart();
   }
 };
 
+//turn on event listener
 productImage1.addEventListener('click', busMallClickHandler);
 productImage2.addEventListener('click', busMallClickHandler);
 productImage3.addEventListener('click', busMallClickHandler);
 
-//Charts
-
-//function to render the chart
-// var renderChart = function() {
-//   //chartjs needs ctx
-//   //collect all data
-//     //labels, data values, colors
-
-//   //creates a data object that gets passed all our other arrays, based off of the example from chartjs
-//   //call a new chart and pass in ctx and our data
-// }
-
-
+//tester products
 new ProductImage('R2D2 Suitcase', './img/bag.jpg');
 new ProductImage('Banana Slicer', './img/banana.jpg');
 new ProductImage('IPad TP Stand', './img/bathroom.jpg');
@@ -127,6 +127,115 @@ new ProductImage('Unicorn in a Can', './img/unicorn.jpg');
 new ProductImage('Under the Sea USB', './img/usb.gif');
 new ProductImage('Watering Can\'t', './img/water-can.jpg');
 new ProductImage('Wine Egg', './img/wine-glass.jpg');
+
+//==========Chart========================
+var renderChart = function () {
+  var nameLabelArray = [];
+  var voteCountArray = [];
+  var barColors = [];
+
+  for (var i = 0; i < allProductImagesArray.length; i++) {
+    nameLabelArray.push(allProductImagesArray[i].name);
+    voteCountArray.push(allProductImagesArray[i].likes);
+  }
+
+  var chartData = {
+    labels: nameLabelArray,
+    datasets: [{
+      label: 'Voting Results',
+      data: voteCountArray,
+      backgroundColor: [
+        'rgba(54, 162, 235, 0.2)',
+        'rgba(75, 192, 192, 0.2)',
+        'rgba(153, 102, 255, 0.2)',
+        'rgba(191, 3, 91, 0.2)',
+        'rgba(54, 162, 235, 0.2)',
+        'rgba(75, 192, 192, 0.2)',
+        'rgba(153, 102, 255, 0.2)',
+        'rgba(191, 3, 91, 0.2)',
+        'rgba(54, 162, 235, 0.2)',
+        'rgba(75, 192, 192, 0.2)',
+        'rgba(153, 102, 255, 0.2)',
+        'rgba(191, 3, 91, 0.2)',
+        'rgba(54, 162, 235, 0.2)',
+        'rgba(75, 192, 192, 0.2)',
+        'rgba(153, 102, 255, 0.2)',
+        'rgba(191, 3, 91, 0.2)',
+        'rgba(54, 162, 235, 0.2)',
+        'rgba(75, 192, 192, 0.2)',
+        'rgba(153, 102, 255, 0.2)',
+        'rgba(191, 3, 91, 0.2)'
+      ],
+      borderColor: [
+        'rgba(54, 162, 235, 1)',
+        'rgba(75, 192, 192, 1)',
+        'rgba(153, 102, 255, 1)',
+        'rgba(191, 3, 91, 1)',
+        'rgba(54, 162, 235, 1)',
+        'rgba(75, 192, 192, 1)',
+        'rgba(153, 102, 255, 1)',
+        'rgba(191, 3, 91, 1)',
+        'rgba(54, 162, 235, 1)',
+        'rgba(75, 192, 192, 1)',
+        'rgba(153, 102, 255, 1)',
+        'rgba(191, 3, 91, 1)',
+        'rgba(54, 162, 235, 1)',
+        'rgba(75, 192, 192, 1)',
+        'rgba(153, 102, 255, 1)',
+        'rgba(191, 3, 91, 1)',
+        'rgba(54, 162, 235, 1)',
+        'rgba(75, 192, 192, 1)',
+        'rgba(153, 102, 255, 1)',
+        'rgba(191, 3, 91, 1)',
+      ],
+      borderWidth: 1
+    }]
+  };
+
+  var chartOptions = {
+    scales: {
+      xAxes: [{
+        ticks: {
+          autoSkip: false,
+          fontColor: 'white',
+          fontFamily: 'EB Garamond',
+          fontSize: 16
+        }
+      }],
+      yAxes: [{
+        ticks: {
+          beginAtZero: true,
+          steps: 10,
+          stepValue: 1,
+          max: 10,
+          fontColor: 'white',
+          fontFamily: 'EB Garamond',
+          fontSize: 16
+        }
+      }]
+    },
+    animation: {
+      duration: 2000,
+    },
+    responsive: true,
+    legend: {
+      labels: {
+        fontColor: 'white',
+        fontSize: 25,
+        fontFamily: 'Bai Jamjuree'
+      }
+    },
+  };
+
+  var barChart = {
+    type: 'bar',
+    data: chartData,
+    options: chartOptions,
+  };
+
+  var myChart = new Chart(ctx, barChart);
+};
+
 
 // allProductImagesArray.forEach(function(item) {
 //   var liUl = document.createElement('li');
