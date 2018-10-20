@@ -1,10 +1,9 @@
 'use strict';
 
 //==========Global Variables======================
-// var imageSection = document.getElementById('testing-section');
+
 var rankSection = document.getElementById('rank-results');
 var ctx = document.getElementById("myChart").getContext('2d');
-console.log(ctx);
 
 var productImage1 = document.getElementById('image-1');
 var productImage2 = document.getElementById('image-2');
@@ -132,12 +131,18 @@ new ProductImage('Wine Egg', './img/wine-glass.jpg');
 var renderChart = function () {
   var nameLabelArray = [];
   var voteCountArray = [];
-  var barColors = [];
 
   for (var i = 0; i < allProductImagesArray.length; i++) {
     nameLabelArray.push(allProductImagesArray[i].name);
     voteCountArray.push(allProductImagesArray[i].likes);
   }
+
+  var storeToLocalStorage = function () {
+    localStorage.setItem('xAxisLabels', JSON.stringify(nameLabelArray));
+    localStorage.setItem('votes', JSON.stringify(voteCountArray));
+  };
+
+  storeToLocalStorage();
 
   var chartData = {
     labels: nameLabelArray,
@@ -236,9 +241,5 @@ var renderChart = function () {
   var myChart = new Chart(ctx, barChart);
 };
 
-
-// allProductImagesArray.forEach(function(item) {
-//   var liUl = document.createElement('li');
-//   liUl.textContent = `The ${item.name} was displayed ${item.appeared} times and got ${item.likes} vote(s).`;
-//   rankSection.appendChild(liUl);
-// });
+// var nameLabelArray = JSON.parse(localStorage.getItem('xAxisLabels'));
+// var voteCountArray = JSON.parse(localStorage.getItem('votes'));
