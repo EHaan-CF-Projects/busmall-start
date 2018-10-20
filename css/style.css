@@ -88,8 +88,8 @@ p {
     font-family: 'Bai Jamjuree', sans-serif;
 }
 
-#vote-graph {
-    margin: 25px 0;
+#graph-section {
+    margin-top: 25px 0;
 }
 
 footer {
