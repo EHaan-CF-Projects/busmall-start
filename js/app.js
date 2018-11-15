@@ -2,7 +2,6 @@
 
 //==========Global Variables======================
 
-var rankSection = document.getElementById('rank-results');
 var ctx = document.getElementById("myChart").getContext('2d');
 
 var productImage1 = document.getElementById('image-1');
@@ -14,8 +13,8 @@ var productImage2Text = document.getElementById('image-2-text');
 var productImage3Text = document.getElementById('image-3-text');
 
 var currentImage1ArrayIndex = 0;
-var currentImage2ArrayIndex = 2;
-var currentImage3ArrayIndex = 3;
+var currentImage2ArrayIndex = 1;
+var currentImage3ArrayIndex = 2;
 
 var clickCounter = 0;
 var allProductImagesArray = [];
@@ -74,6 +73,7 @@ var busMallClickHandler = function (event) {
   currentImage2ArrayIndex = randomNumberImage2;
   currentImage3ArrayIndex = randomNumberImage3;
 
+  //replace images & text
   productImage1.src = allProductImagesArray[randomNumberImage1].src;
   productImage2.src = allProductImagesArray[randomNumberImage2].src;
   productImage3.src = allProductImagesArray[randomNumberImage3].src;
@@ -84,17 +84,13 @@ var busMallClickHandler = function (event) {
 
   //turn off after 25 test rounds
   clickCounter++;
-  if (clickCounter === 25) {
+  if (clickCounter === 5) {
     productImage1.removeEventListener('click', busMallClickHandler);
     productImage2.removeEventListener('click', busMallClickHandler);
     productImage3.removeEventListener('click', busMallClickHandler);
 
-    //render voting results
-    for (var i = 0; i < allProductImagesArray.length; i++) {
-      var liUl = document.createElement('li');
-      liUl.textContent = `${allProductImagesArray[i].name}:  ${allProductImagesArray[i].likes} / ${allProductImagesArray[i].appeared}`;
-      rankSection.appendChild(liUl);
-    }
+    //Save data to local storage
+    storeToLocalStorage();
     //render results as bar graph
     renderChart();
   }
@@ -128,27 +124,27 @@ new ProductImage('Watering Can\'t', './img/water-can.jpg');
 new ProductImage('Wine Egg', './img/wine-glass.jpg');
 
 //==========Chart========================
-var renderChart = function () {
-  var nameLabelArray = [];
-  var voteCountArray = [];
+var nameLabelArray = [];
+var voteCountArray = [];
 
+var storeToLocalStorage = function () {
   for (var i = 0; i < allProductImagesArray.length; i++) {
     nameLabelArray.push(allProductImagesArray[i].name);
     voteCountArray.push(allProductImagesArray[i].likes);
   }
+  localStorage.setItem('xAxisLabels', JSON.stringify(nameLabelArray));
+  localStorage.setItem('votes', JSON.stringify(voteCountArray));
+};
 
-  var storeToLocalStorage = function () {
-    localStorage.setItem('xAxisLabels', JSON.stringify(nameLabelArray));
-    localStorage.setItem('votes', JSON.stringify(voteCountArray));
-  };
-
-  storeToLocalStorage();
+var renderChart = function () {
+  var storedLabelArray = JSON.parse(localStorage.getItem('xAxisLabels'));
+  var storedVoteArray = JSON.parse(localStorage.getItem('votes'));
 
   var chartData = {
-    labels: nameLabelArray,
+    labels: storedLabelArray,
     datasets: [{
       label: 'Voting Results',
-      data: voteCountArray,
+      data: storedVoteArray,
       backgroundColor: [
         'rgba(54, 162, 235, 0.2)',
         'rgba(75, 192, 192, 0.2)',
@@ -241,5 +237,6 @@ var renderChart = function () {
   var myChart = new Chart(ctx, barChart);
 };
 
-// var nameLabelArray = JSON.parse(localStorage.getItem('xAxisLabels'));
-// var voteCountArray = JSON.parse(localStorage.getItem('votes'));
+if (localStorage.getItem('xAxisLabels') && localStorage.getItem('votes')) {
+  renderChart();
+}
