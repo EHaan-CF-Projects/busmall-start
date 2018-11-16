@@ -84,7 +84,7 @@ var busMallClickHandler = function (event) {
 
   //turn off after 25 test rounds
   clickCounter++;
-  if (clickCounter === 5) {
+  if (clickCounter === 25) {
     productImage1.removeEventListener('click', busMallClickHandler);
     productImage2.removeEventListener('click', busMallClickHandler);
     productImage3.removeEventListener('click', busMallClickHandler);
@@ -146,50 +146,50 @@ var renderChart = function () {
       label: 'Voting Results',
       data: storedVoteArray,
       backgroundColor: [
-        'rgba(54, 162, 235, 0.2)',
-        'rgba(75, 192, 192, 0.2)',
-        'rgba(153, 102, 255, 0.2)',
-        'rgba(191, 3, 91, 0.2)',
-        'rgba(54, 162, 235, 0.2)',
-        'rgba(75, 192, 192, 0.2)',
-        'rgba(153, 102, 255, 0.2)',
-        'rgba(191, 3, 91, 0.2)',
-        'rgba(54, 162, 235, 0.2)',
-        'rgba(75, 192, 192, 0.2)',
-        'rgba(153, 102, 255, 0.2)',
-        'rgba(191, 3, 91, 0.2)',
-        'rgba(54, 162, 235, 0.2)',
-        'rgba(75, 192, 192, 0.2)',
-        'rgba(153, 102, 255, 0.2)',
-        'rgba(191, 3, 91, 0.2)',
-        'rgba(54, 162, 235, 0.2)',
-        'rgba(75, 192, 192, 0.2)',
-        'rgba(153, 102, 255, 0.2)',
-        'rgba(191, 3, 91, 0.2)'
+        'rgba(128, 17, 9, 0.3)',
+        'rgba(128, 17, 9, 0.3)',
+        'rgba(128, 17, 9, 0.3)',
+        'rgba(128, 17, 9, 0.3)',
+        'rgba(128, 17, 9, 0.3)',
+        'rgba(128, 17, 9, 0.3)',
+        'rgba(128, 17, 9, 0.3)',
+        'rgba(128, 17, 9, 0.3)',
+        'rgba(128, 17, 9, 0.3)',
+        'rgba(128, 17, 9, 0.3)',
+        'rgba(128, 17, 9, 0.3)',
+        'rgba(128, 17, 9, 0.3)',
+        'rgba(128, 17, 9, 0.3)',
+        'rgba(128, 17, 9, 0.3)',
+        'rgba(128, 17, 9, 0.3)',
+        'rgba(128, 17, 9, 0.3)',
+        'rgba(128, 17, 9, 0.3)',
+        'rgba(128, 17, 9, 0.3)',
+        'rgba(128, 17, 9, 0.3)',
+        'rgba(128, 17, 9, 0.3)'
       ],
       borderColor: [
-        'rgba(54, 162, 235, 1)',
-        'rgba(75, 192, 192, 1)',
-        'rgba(153, 102, 255, 1)',
-        'rgba(191, 3, 91, 1)',
-        'rgba(54, 162, 235, 1)',
-        'rgba(75, 192, 192, 1)',
-        'rgba(153, 102, 255, 1)',
-        'rgba(191, 3, 91, 1)',
-        'rgba(54, 162, 235, 1)',
-        'rgba(75, 192, 192, 1)',
-        'rgba(153, 102, 255, 1)',
-        'rgba(191, 3, 91, 1)',
-        'rgba(54, 162, 235, 1)',
-        'rgba(75, 192, 192, 1)',
-        'rgba(153, 102, 255, 1)',
-        'rgba(191, 3, 91, 1)',
-        'rgba(54, 162, 235, 1)',
-        'rgba(75, 192, 192, 1)',
-        'rgba(153, 102, 255, 1)',
-        'rgba(191, 3, 91, 1)',
+        'rgba(128, 17, 9, 1)',
+        'rgba(128, 17, 9, 1)',
+        'rgba(128, 17, 9, 1)',
+        'rgba(128, 17, 9, 1)',
+        'rgba(128, 17, 9, 1)',
+        'rgba(128, 17, 9, 1)',
+        'rgba(128, 17, 9, 1)',
+        'rgba(128, 17, 9, 1)',
+        'rgba(128, 17, 9, 1)',
+        'rgba(128, 17, 9, 1)',
+        'rgba(128, 17, 9, 1)',
+        'rgba(128, 17, 9, 1)',
+        'rgba(128, 17, 9, 1)',
+        'rgba(128, 17, 9, 1)',
+        'rgba(128, 17, 9, 1)',
+        'rgba(128, 17, 9, 1)',
+        'rgba(128, 17, 9, 1)',
+        'rgba(128, 17, 9, 1)',
+        'rgba(128, 17, 9, 1)',
+        'rgba(128, 17, 9, 1)',
       ],
-      borderWidth: 1
+      borderWidth: 2
     }]
   };
 
@@ -198,9 +198,9 @@ var renderChart = function () {
       xAxes: [{
         ticks: {
           autoSkip: false,
-          fontColor: 'white',
-          fontFamily: 'EB Garamond',
-          fontSize: 16
+          fontColor: 'black',
+          fontFamily: 'Cormorant Garamond',
+          fontSize: 22,
         }
       }],
       yAxes: [{
@@ -209,9 +209,9 @@ var renderChart = function () {
           steps: 10,
           stepValue: 1,
           max: 10,
-          fontColor: 'white',
-          fontFamily: 'EB Garamond',
-          fontSize: 16
+          fontColor: 'black',
+          fontFamily: 'Cormorant Garamond',
+          fontSize: 30
         }
       }]
     },
@@ -221,9 +221,9 @@ var renderChart = function () {
     responsive: true,
     legend: {
       labels: {
-        fontColor: 'white',
-        fontSize: 25,
-        fontFamily: 'Bai Jamjuree'
+        fontColor: 'black',
+        fontSize: 40,
+        fontFamily: 'Playfair Display'
       }
     },
   };
