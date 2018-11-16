@@ -1,101 +1,50 @@
-body {
+/* Text */
+h1 {
+    font-size: 48px;
+}
+h2 {
+    font-size: 32px;
+}
+h3{
+    font-size: 40px;
+}
+p {
+    font-size: 18px;
+}
+figcaption {
+    font-size: 22px;
+}
+/* Header */
+header {
+    width: 100%;
+    height: 250px;
+    background-color: black;
+}
+header h1, h2 {
     width: 960px;
     margin: auto;
-    background-color: rgb(68, 65, 65);
+    text-align: center;
     color: white;
 }
-
-header {
-    margin: 10px 0;
-    text-align: center;
-    border-bottom: 10px white solid;
-    padding: 5px;
-    margin-bottom: 25px;
+header h1 {
+    padding-top: 75px;
 }
-
-h1 {
-    font-size: 80px;
-    font-family: 'Bai Jamjuree', sans-serif;
+/* Test Section */
+#test {
+    background-image: url('/img/ant-rozetsky-582421-unsplash.jpg');
+    background-size: cover;
+    background-attachment: no-repeat;    
+    width: 100%;
+    height: 600px;
 }
-
-h2 {
-    font-size: 47px;
-    font-family: 'Bai Jamjuree', sans-serif;
-}
-
-h3 {
-    font-size: 30px;
-    margin-bottom: 15px;
-    font-family: 'Bai Jamjuree', sans-serif;
-}
-
-aside {
-    float: left;
-    width: 23%;
-    height: 625px;
-    border: 2px white solid;
-    padding: 10px;
-}
-
-aside div {
-    text-align: center;
-    font-family: 'Bai Jamjuree', sans-serif;
-    border-bottom: 2px white solid;
-    padding: 5px;
-}
-
-aside li {
-    margin: 10px 0;
-    text-align: right;
-    font-family: 'Bai Jamjuree', sans-serif;
-}
-
-#purpose {
-    width: 70%;
-    float: left;
-    margin-top: 20px;
-    margin-left: 10px;
-}
-
-p {
-    margin-bottom: 15px;
-    font-family: 'EB Garamond', serif;
-}
-
-#testing-section {
-    width: 73%;
-    height: 405px;
-    float: left;
-    margin-top: 50px;
-    margin-left: 10px;
-}
-
-#testing-section h3 {
-    text-align: center;
-    border-bottom: 2px white solid;
-    font-family: 'Bai Jamjuree', sans-serif;
-}
-
-#test-products div {
-    display: inline-block;
-    margin: 0px 15px;
-   
-}
-
-#test-products h5 {
-    text-align: center;
-    font-size: 18px;
-    font-family: 'Bai Jamjuree', sans-serif;
-}
-
-#graph-section {
-    margin-top: 25px 0;
-}
-
-footer {
+#instructions {
     width: 960px;
-    float: left;
-    border-top: 10px white solid;
-    margin: 25px 0;
+    margin: auto;
+    color: white;
+    display: inline-block;
 }
-
+#instructions h3 {
+    margin-top: 50px;
+    width: 200px;
+    border-right: 3px solid white;
+}
