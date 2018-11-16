@@ -6,48 +6,49 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Busmall</title>
     <link href="css/reset.css" type="text/css" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css?family=Bai+Jamjuree|EB+Garamond" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Cormorant+Garamond|Playfair+Display" rel="stylesheet">
     <link href="css/style.css" type="text/css" rel="stylesheet">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.2/Chart.min.js"></script>
 </head>
 <body>
     <header>
-        <h1>BUSMALL</h1>
-        <h2>Product Testing Site</h2>        
+        <h1>BUSMALL MAGAZINE</h1>
+        <h2>Product Research + Consumer Testing</h2>        
     </header>
-    <aside>
-        <div>
-            <h3>VOTING RESULTS</h3>
-            <h4> VOTES / APPEARENCES</h4>
+    <main>
+        <section id="test">
+            <div id="instructions">
+                <h3>Instructions</h3>
+                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+            </div>
+            <div id="test-products">
+                <figure>
+                    <figcaption id="image-1-text">R2D2 Suitcase</figcaption>
+                    <img id="image-1" data-index="0" src="img/bag.jpg" width="250px" height="250px">
+                </figure>
+                <figure>
+                    <figcaption id="image-2-text">Banana Slicer</figcaption>
+                    <img id="image-2" data-index="0" src="img/banana.jpg" width="250px" height="250px">
+                </figure>
+                <figure>
+                    <figcaption id="image-3-text">IPad TP Stand</figcaption>
+                    <img id="image-3" data-index="0" src="img/bathroom.jpg" width="250px" height="250px">
+                </figure>
+            </div>
+        </section>
+        <section id="reset">
+            <button type='button'>Clear Previous Results</button>
+        </section>
+        <section id="graph-section">
+            <canvas id="myChart" width="700" height="400"></canvas>
+        </section>
+    </main>
+    <footer>
+        <div id='footnotes'>
+            <p>2018 haan.e </p>
+            <a style="background-color:rgba(128, 17, 9);color:white;text-decoration:none;padding:4px 6px;font-family:-apple-system, BlinkMacSystemFont, &quot;San Francisco&quot;, &quot;Helvetica Neue&quot;, Helvetica, Ubuntu, Roboto, Noto, &quot;Segoe UI&quot;, Arial, sans-serif;font-size:12px;font-weight:bold;line-height:1.2;display:inline-block;border-radius:3px" href="https://unsplash.com/@rozetsky?utm_medium=referral&amp;utm_campaign=photographer-credit&amp;utm_content=creditBadge" target="_blank" rel="noopener noreferrer" title="Download free do whatever you want high-resolution photos from Ant Rozetsky"><span style="display:inline-block;padding:2px 3px"><svg xmlns="http://www.w3.org/2000/svg" style="height:12px;width:auto;position:relative;vertical-align:middle;top:-1px;fill:white" viewBox="0 0 32 32"><title>unsplash-logo</title><path d="M20.8 18.1c0 2.7-2.2 4.8-4.8 4.8s-4.8-2.1-4.8-4.8c0-2.7 2.2-4.8 4.8-4.8 2.7.1 4.8 2.2 4.8 4.8zm11.2-7.4v14.9c0 2.3-1.9 4.3-4.3 4.3h-23.4c-2.4 0-4.3-1.9-4.3-4.3v-15c0-2.3 1.9-4.3 4.3-4.3h3.7l.8-2.3c.4-1.1 1.7-2 2.9-2h8.6c1.2 0 2.5.9 2.9 2l.8 2.4h3.7c2.4 0 4.3 1.9 4.3 4.3zm-8.6 7.5c0-4.1-3.3-7.5-7.5-7.5-4.1 0-7.5 3.4-7.5 7.5s3.3 7.5 7.5 7.5c4.2-.1 7.5-3.4 7.5-7.5z"></path></svg></span><span style="display:inline-block;padding:2px 3px">Ant Rozetsky</span></a>
         </div>
-        <ul id="rank-results"></ul>
-    </aside>
-    <section id="purpose">
-        <h3>Purpose</h3>
-        <p>Do you miss Sky Mall? Did you ever read Sky Mall and think: 'A flight is just not long enough to review all of these amazing products. I wish I could flip through it more regularly like on my commute in public transportation!' Enter: Bus Mall. Now you can look at the latest zany inventions as you leisurly ride through your neighborhood.</p>
-        <p>What items would you want to see next? Please take a moment to help us by reviewing and rating the images below. </p>
-    </section>
-    <section id="testing-section">
-        <h3>Please click on the most interesting item:</h3>
-        <div id="test-products">
-            <div>
-                <img id="image-1" data-index="0" src="img/bag.jpg" width="200px" height="200px">
-                <h5 id="image-1-text">R2D2 Suitcase</h5>
-            </div>
-            <div>
-                <img id="image-2" data-index="0" src="img/banana.jpg" width="200px" height="200px">
-                <h5 id="image-2-text">Banana Slicer</h5>
-            </div>
-            <div>
-                <img id="image-3" data-index="0" src="img/bathroom.jpg" width="200px" height="200px">
-                <h5 id="image-3-text">IPad TP Stand</h5>
-            </div>
-        </div>
-    </section>
-    <section id="graph-section">
-        <canvas id="myChart" width="940" height="400"></canvas>
-    </section>
-    <footer></footer>    
+    </footer>    
     <script src="js/app.js"></script>
 </body>
 </html>
