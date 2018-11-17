@@ -123,6 +123,11 @@ new ProductImage('Under the Sea USB', './img/usb.gif');
 new ProductImage('Watering Can\'t', './img/water-can.jpg');
 new ProductImage('Wine Egg', './img/wine-glass.jpg');
 
+//====Button: Reset Local Storage========
+var resetVoteResults = function(){
+  localStorage.clear();
+  location.reload();
+};
 //==========Chart========================
 var nameLabelArray = [];
 var voteCountArray = [];
@@ -240,3 +245,6 @@ var renderChart = function () {
 if (localStorage.getItem('xAxisLabels') && localStorage.getItem('votes')) {
   renderChart();
 }
+
+
+
