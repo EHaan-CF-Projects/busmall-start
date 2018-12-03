@@ -39,7 +39,7 @@ header h1 {
 }
 /* Test Section */
 #test {
-    background-image: url('/img/ant-rozetsky-582421-unsplash.jpg');
+    background-image: url('../img/ant-rozetsky-582421-unsplash.jpg');
     background-size: cover;
     background-attachment: no-repeat;    
     width: 100%;
